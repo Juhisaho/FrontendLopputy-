@@ -120,7 +120,7 @@ export default function Customers() {
         {field: 'email', filter: true, sortable: true, editable: true},
         {field: 'phone', filter: true, sortable: true, editable: true},        
         {
-            headerName: 'Edit', width: 100,
+            headerName: 'Add training', width: 150,
             cellRendererFramework: params => <AddTraining addTraining={addTrainingToCustomer} customer={params.data} />
         },
         {
