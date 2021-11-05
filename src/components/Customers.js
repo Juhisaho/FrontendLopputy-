@@ -2,14 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import {AgGridReact} from 'ag-grid-react';
 import Snackbar from '@mui/material/Snackbar';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
 import AddCustomer from "./AddCustomer";
 import AddTraining from "./AddTraining";
 import { CSVLink } from 'react-csv';
-import { CircularProgress, Paper} from '@material-ui/core';
 
 export default function Customers() {
 
@@ -18,7 +16,6 @@ export default function Customers() {
     const gridRef = useRef()
     const [open, setOpen] = useState(false)
     const [msg, setMsg] = useState('')
-    const [loading, setLoading] = useState(false)
 
     const handleClose = (event, reason) => {
       if (reason === 'clickaway') {
@@ -36,12 +33,10 @@ export default function Customers() {
     useEffect(() => fetchCustomers(), [])
 
     const fetchCustomers = () => {
-        setLoading(true)
         fetch('https://customerrest.herokuapp.com/api/customers')
         .then(response => response.json())
         .then(data => setCustomers(data.content))
         .catch(err => console.error(err))
-        setLoading(false)
     }
 
     const addCustomer = (newCustomer) => {
@@ -140,8 +135,7 @@ export default function Customers() {
         { label: "Email", key: "email" },
          { label: "Phone", key: "phone" },
     ]
-    if (loading) return <Paper style={{padding: '1em'}}><div>Loading customers <CircularProgress /></div></Paper>
-    else
+    
     return (
         <>
         <div className="ag-theme-material" style={{height: 660, width: 'auto', margin: 20}}>

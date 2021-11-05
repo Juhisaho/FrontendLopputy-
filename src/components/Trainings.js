@@ -4,7 +4,7 @@ import Snackbar from '@mui/material/Snackbar';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
 import { format } from 'date-fns'
-import { CircularProgress, Paper} from '@material-ui/core';
+
 
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
@@ -19,7 +19,6 @@ export default function Trainings() {
 
     const [open, setOpen] = useState(false)
     const [msg, setMsg] = useState('')
-    const [loading, setLoading] = useState(false)
 
     const handleClose = (event, reason) => {
       if (reason === 'clickaway') {
@@ -31,12 +30,11 @@ export default function Trainings() {
 
 
     const fetchTrainings = () => {
-        setLoading(true)
         fetch('https://customerrest.herokuapp.com/gettrainings')
         .then(response => response.json())
         .then(data => setTrainings(data))
         .catch(err => console.error(err))
-        setLoading(false)
+        
     }
 
     const deleteTraining = (url) => {
@@ -70,8 +68,7 @@ export default function Trainings() {
             cellRendererFramework: params => <Button onClick={() => deleteTraining("https://customerrest.herokuapp.com/api/trainings/" + params.data.id)} startIcon={<DeleteIcon color="error" />}/>
         }
     ]
-    if (loading) return <Paper style={{padding: '1em'}}><div>Loading customers <CircularProgress /></div></Paper>
-    else
+    
       return (
         <>
         <div className="ag-theme-material" style={{height: 660, width: 900, margin: 'auto', marginTop: 20}}>
