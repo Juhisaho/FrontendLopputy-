@@ -112,13 +112,13 @@ export default function Customers() {
     }
 
     const columns = [
-        {field: 'firstname', filter: true, sortable: true, floatingFilter: true, editable: true},
-        {field: 'lastname', filter: true, sortable: true, floatingFilter: true, editable: true},
-        {headerName: 'Street address', field: 'streetaddress', filter: true, sortable: true, floatingFilter: true, editable: true},
-        {field: 'postcode', filter: true, sortable: true, floatingFilter: true, editable: true},
-        {field: 'city', filter: true, sortable: true, floatingFilter: true, editable: true},
-        {field: 'email', filter: true, sortable: true, floatingFilter: true, editable: true},
-        {field: 'phone', filter: true, sortable: true, floatingFilter: true, editable: true},        
+        {field: 'firstname', filter: true, sortable: true, editable: true},
+        {field: 'lastname', filter: true, sortable: true, editable: true},
+        {headerName: 'Street address', field: 'streetaddress', filter: true, sortable: true, editable: true},
+        {field: 'postcode', filter: true, sortable: true, editable: true},
+        {field: 'city', filter: true, sortable: true, editable: true},
+        {field: 'email', filter: true, sortable: true, editable: true},
+        {field: 'phone', filter: true, sortable: true, editable: true},        
         {
             headerName: 'Edit', width: 100,
             cellRendererFramework: params => <AddTraining addTraining={addTrainingToCustomer} customer={params.data} />
@@ -143,7 +143,7 @@ export default function Customers() {
     else
     return (
         <>
-        <div className="ag-theme-material" style={{height: 660, width: 'auto', margin: 10}}>
+        <div className="ag-theme-material" style={{height: 660, width: 'auto', margin: 20}}>
            <AgGridReact
                rowData={customers}
                columnDefs={columns}
