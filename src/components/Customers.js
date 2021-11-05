@@ -114,17 +114,17 @@ export default function Customers() {
     const columns = [
         {field: 'firstname', filter: true, sortable: true, floatingFilter: true, editable: true},
         {field: 'lastname', filter: true, sortable: true, floatingFilter: true, editable: true},
-        {field: 'streetaddress', filter: true, sortable: true, floatingFilter: true, editable: true},
+        {headerName: 'Street address', field: 'streetaddress', filter: true, sortable: true, floatingFilter: true, editable: true},
         {field: 'postcode', filter: true, sortable: true, floatingFilter: true, editable: true},
         {field: 'city', filter: true, sortable: true, floatingFilter: true, editable: true},
         {field: 'email', filter: true, sortable: true, floatingFilter: true, editable: true},
         {field: 'phone', filter: true, sortable: true, floatingFilter: true, editable: true},        
         {
-            width: 60,
+            headerName: 'Edit', width: 100,
             cellRendererFramework: params => <AddTraining addTraining={addTrainingToCustomer} customer={params.data} />
         },
         {
-            width: 60,
+            headerName: 'Delete', width: 100,
             cellRendererFramework: params => <Button onClick={() => deleteCustomer(params.data.links[0].href)} startIcon={<DeleteIcon color="error"/>}></Button>
         }
 
