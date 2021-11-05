@@ -31,7 +31,7 @@ export default function Statistics() {
     
 
 
-    const data = trainings.groupBy('activity').map((trainingData, key) => ({
+    const data = _(trainings).groupBy('activity').map((trainingData, key) => ({
         'activity': key,
         'duration': _.sumBy(trainingData, 'duration')
     })).value();
