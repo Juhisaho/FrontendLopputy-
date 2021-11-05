@@ -31,18 +31,6 @@ export default function Trainings() {
       setOpen(false)
     }
 
-    const action = (
-        <React.Fragment>
-          <IconButton
-            size="small"
-            aria-label="close"
-            color="inherit"
-            onClick={handleClose}
-          >
-            <CloseIcon fontSize="small" />
-          </IconButton>
-        </React.Fragment>
-      )
 
     const fetchTrainings = () => {
         setLoading(true)
@@ -99,7 +87,7 @@ export default function Trainings() {
         autoHideDuration={3000}
         onClose={handleClose}
         message={msg}
-        action={action}
+        
         />
         </>
         
