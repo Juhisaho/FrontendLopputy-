@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {AgGridReact} from 'ag-grid-react';
 import Snackbar from '@mui/material/Snackbar';
 import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
@@ -156,8 +157,8 @@ export default function Customers() {
                onCellEditingStarted={editStarts}
                onCellEditingStopped={editCustomer}>               
            </AgGridReact>
-           <AddCustomer  addCustomer={addCustomer}/>
-           <CSVLink data={customers} headers ={headers}>CSV EXPORT</CSVLink>
+           <AddCustomer  addCustomer={addCustomer} />
+           <CSVLink data={customers} headers ={headers} style={{color: "InfoText"}}>CSV EXPORT</CSVLink>
         </div>
         <Snackbar
         open={open}

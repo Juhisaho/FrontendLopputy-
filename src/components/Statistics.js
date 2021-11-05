@@ -40,10 +40,9 @@ export default function Statistics() {
         <div style={{height: "400px"}}>
             <Paper>
                 <h2>Training statistics sports per minutes</h2>
-                <Chart data={data} >
-                    
+                <Chart palette="Soft" data={data} >
                     <ArgumentAxis  />
-                    <ValueAxis />
+                    <ValueAxis   />
                     <BarSeries valueField="duration" argumentField="activity" />
                 </Chart>
             </Paper>
